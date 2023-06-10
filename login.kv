@@ -1,0 +1,155 @@
+WindowManager:
+    loginWindow:
+    signupWindow:
+
+
+# GUI for the login window
+<loginWindow>:
+    email : email
+    pwd : pwd
+    FloatLayout:
+        size: root.width, root.height
+        background_color: 1,0,0,1
+        Label:
+            text : "Email: "
+            color: 0,0,0,1
+            size_hint : 0.2, 0.1
+            pos_hint : {"x":0.25, "top":0.9}
+        TextInput:
+            id : email
+            multiline :False
+            size_hint : 0.3, 0.05
+            pos_hint : {"x" : 0.45, "top" : 0.88}
+        Label:
+            text : "Password: "
+            color: 0,0,0,1
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.25, "top" : 0.7}
+        TextInput:
+            id : pwd
+            multiline :False
+            password: True
+            size_hint : 0.3, 0.05
+            pos_hint : {"x" : 0.45, "top" : 0.68}
+        Button:
+            text : "LOGIN"
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.39, "top" : 0.4}
+            on_release: 
+                root.validate()
+                root.manager.transition.direction = "up"
+
+        Button:
+            text : "Forgot your Password?"
+            color: 1,0,0,1
+            font_size: "10sp"
+            background_normal:''
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.39, "top" : 0.3}
+            on_release: 
+                app.root.current = 'forgotpassword'
+                root.manager.transition.direction = "right"
+
+        Button:
+            text : "Don't have an account? Sign up now"
+            color: 1,0,0,1
+            font_size: "10sp"
+            background_normal:''
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.39, "top" : 0.2}
+            on_release: 
+                app.root.current = 'signup'
+                root.manager.transition.direction = "right"
+
+# GUI for the signup window
+<signupWindow>:
+    firstname : firstname
+    lastname : lastname
+    email : email
+    phonenumber : phonenumber
+    pwd : pwd
+    FloatLayout:
+        Label:
+            text : "First Name: "
+            color: 0,0,0,1
+            size_hint : 0.2, 0.1
+            pos_hint : {"x":0.25, "top":0.9}
+        TextInput:
+            id : firstname
+            multiline : False
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.9}
+
+        Label:
+            text : "Last Name: "
+            color: 0,0,0,1
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.25, "top" : 0.8}
+        TextInput:
+            id : lastname
+            multiline : False
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.8}
+
+        Label:
+            text : "Email: "
+            color: 0,0,0,1
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.25, "top" : 0.7}
+        TextInput:
+            id : email
+            multiline : False
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.7}
+
+        Label:
+            text : "Phone Number: "
+            color: 0,0,0,1
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.25, "top" : 0.6}
+        TextInput:
+            id : phonenumber
+            multiline : False
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.6}
+
+        Label:
+            text : "Password: "
+            color: 0,0,0,1
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.25, "top" : 0.5}
+        TextInput:
+            id : pwd
+            password: True
+            multiline : False
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.5}
+
+        Button:
+            text : "SUBMIT"
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.39, "top" : 0.28}
+            on_press :
+                root.signupbtn()
+                root.manager.transition.direction = "right"
+  
+<forgotpasswordWindow>:
+    email : email
+    FloatLayout:
+        Label:
+            text : "Enter Email: "
+            color: 0,0,0,1
+            size_hint : 0.2, 0.1
+            pos_hint : {"x":0.25, "top":0.9}
+        TextInput:
+            id : email
+            multiline : False
+            size_hint : 0.3, 0.05
+            pos_hint : {"x" : 0.45, "top" : 0.88}
+        Button:
+            text : "SUBMIT"
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.39, "top" : 0.28}
+            on_press :
+                root.forgotpwdbtn()
+                root.manager.transition.direction = "right"
